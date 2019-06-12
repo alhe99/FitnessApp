@@ -1,14 +1,17 @@
 import React from 'react';
-import { BrowserRouter,Route } from 'react-router-dom'
+import { BrowserRouter,Route,Switch } from 'react-router-dom'
 import Exercises from '../pages/Exercises'
+import ExercisesNew from '../pages/ExerciseNew'
+import NotFound from '../pages/NotFound'
 
-function App(){
-    return (
-        <BrowserRouter>
-            <Route path="/exercises" component={Exercises}/>
-            <Route path="/exercises/new" component={Exercises}/>
-        </BrowserRouter>
-    )
-}
+const App = () => (
+    <BrowserRouter>
+        <Switch>
+            <Route exact path="/exercises" component={Exercises} />
+            <Route exact path="/exercises/new" component={ExercisesNew} />
+            <Route component={NotFound} />
+        </Switch>
+    </BrowserRouter>
+)
 
 export default App
