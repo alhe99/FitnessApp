@@ -41,14 +41,13 @@ class Exercises extends React.Component{
             return <FatalError/>
 
          return (
-
-             <div>
+              <React.Fragment>
                    <Welcome username="Alonso"/>
                    <ExerciseList
                     exercises={this.state.data}
                    />
                    <AddButton/>
-                </div>
+              </React.Fragment>
          )
      }
 }
