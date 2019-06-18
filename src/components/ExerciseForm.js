@@ -1,14 +1,8 @@
 import React from 'react'
 
-class ExerciseForm extends React.Component{
-   
-   /* handleClick = () =>{
-        console.log('Clicked');
-    }*/
-    render(){
-        const { onChange,form,onSubmit } = this.props;
-        return (
-          <div className="container">
+
+const ExerciseForm = ({ onChange,form,onSubmit }) => (
+    <div className="container">
               <form onSubmit={onSubmit}>
                   <div className="form-group">
                       <input
@@ -63,8 +57,6 @@ class ExerciseForm extends React.Component{
                   <button type="submit" className="btn btn-primary my-1 float-right">Submit</button>
               </form>
           </div>
-        )
-    }
-}
+)
 
 export default ExerciseForm

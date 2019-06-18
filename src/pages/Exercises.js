@@ -4,8 +4,31 @@ import Welcome from '../components/Welcome'
 import AddButton from '../components/AddButton'
 import Loading from '../components/Loading'
 import FatalError from './500'
+import { userInfo } from 'os';
+import useFetch from '../hooks/useFetch'
+import url from '../config'
 
-class Exercises extends React.Component{
+const Exercises = () =>{
+
+   const {data,loading,error} = useFetch(`${url}/exercises`)
+    
+    if (loading)
+        return <Loading />
+
+    if (error)
+        return <FatalError />
+
+    return (
+        <React.Fragment>
+            <Welcome username="Alonso" />
+            <ExerciseList
+                exercises={data}
+            />
+            <AddButton />
+        </React.Fragment>
+    )
+}
+/*class Exercises extends React.Component{
     state = {
         data: [],
         loading: true,
@@ -50,6 +73,6 @@ class Exercises extends React.Component{
               </React.Fragment>
          )
      }
-}
+}*/
 
 export default Exercises
